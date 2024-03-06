@@ -20,7 +20,8 @@ from aiogram.exceptions import TelegramBadRequest
 def parse_time(time_string: Union[str, None]) -> Union[datetime, None]:
     return None
 
-  match_ = re.match(r"(\d+)([a-z])", time_string.lower().strip()
+
+  match_ = re.match(r"(\d+)([a-z])", time_string.lower().strip())
   current_datetime = datetime.utcnow()
   if match_:
     value = int(match_.group(1))
