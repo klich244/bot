@@ -10,15 +10,14 @@ import logging
 
 from datetime import datetime, timedelta
 from contextlib import suppress
-from typing import Any
+from typing import Any, Union
 from aiogram import Router, Bot, Dispatcher, F
 from aiogram.types import Message, ChatPermissions
 from aiogram.filters import CommandObject, Command, CommandStart
 from aiogram.enums import ParseMode
 from aiogram.exceptions import TelegramBadRequest
 
-def parse_time(time_string: str | None) -> datetime | None:
-  if not time_string:
+def parse_time(time_string: Union[str, None]) -> Union[datetime, None]:
     return None
 
   match_ = re.match(r"(\d+)([a-z])", time_string.lower().strip())
